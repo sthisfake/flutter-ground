@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Questions extends StatelessWidget {
-  final String questionsText;
+  String questionsText;
 
   Questions(this.questionsText);
 

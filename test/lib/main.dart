@@ -15,7 +15,24 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var _qusetions = ['q1 is', 'q2 is', 'q3 is', 'q4 is'];
+  var qusetionsAndAnswers = [
+
+    {
+      'question': 'what is your name?' ,
+     'answer'   : ['pouya' , 'reza' , 'ali' , 'karim']
+     } ,
+
+    {
+      'question': 'what is your name?' ,
+     'answer'   : ['pouya' , 'reza' , 'ali' , 'karim']
+     } ,
+
+    {
+      'question': 'what is your name?' ,
+     'answer'   : ['pouya' , 'reza' , 'ali' , 'karim']
+     } ,
+     
+  ];
 
   int _questionIndex = 0;
 
@@ -39,12 +56,10 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: [
-            Questions(
-              _qusetions[_questionIndex],
-            ),
-            Answer(_changeQuestions),
-            Answer(_changeQuestions),
-            Answer(_changeQuestions),
+            Questions(qusetionsAndAnswers[_questionIndex]['question'].toString()),
+            ...(qusetionsAndAnswers[0]['answer'] as List<String>).map((answer){
+              return Answer(_changeQuestions , answer );
+            }).toList()
           ],
         ),
       ),
