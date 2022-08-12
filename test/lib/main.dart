@@ -1,7 +1,11 @@
 // ignore_for_file: prefer_const_constructors
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import './questions.dart';
 import './answer.dart';
+import './quiz.dart';
+import './result.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,36 +20,58 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var qusetionsAndAnswers = [
-
     {
-      'question': 'what is your name?' ,
-     'answer'   : ['pouya' , 'reza' , 'ali' , 'karim']
-     } ,
-
+      'questionText': 'What\'s your favorite color?',
+      'answers': [
+        {'text': 'Black', 'score': 10},
+        {'text': 'Red', 'score': 5},
+        {'text': 'Green', 'score': 3},
+        {'text': 'White', 'score': 1},
+      ],
+    },
     {
-      'question': 'what is your name?' ,
-     'answer'   : ['pouya' , 'reza' , 'ali' , 'karim']
-     } ,
-
+      'questionText': 'What\'s your favorite animal?',
+      'answers': [
+        {'text': 'Rabbit', 'score': 3},
+        {'text': 'Snake', 'score': 11},
+        {'text': 'Elephant', 'score': 5},
+        {'text': 'Lion', 'score': 9},
+      ],
+    },
     {
-      'question': 'what is your name?' ,
-     'answer'   : ['pouya' , 'reza' , 'ali' , 'karim']
-     } ,
-     
+      'questionText': 'Who\'s your favorite instructor?',
+      'answers': [
+        {'text': 'Max', 'score': 1},
+        {'text': 'Max', 'score': 1},
+        {'text': 'Max', 'score': 1},
+        {'text': 'Max', 'score': 1},
+      ],
+    },
   ];
 
   int _questionIndex = 0;
+  int _totalScore = 0;
 
-  void _changeQuestions() {
+  void _resetQuiz(){
+      setState(() {
+      _questionIndex = 0;
+      _totalScore = 0;
+    });
+  }
+
+  void _changeQuestions(int? score) {
+
+    if(score != null){
+      
+    _totalScore = _totalScore + score ;
+
     setState(() {
       _questionIndex = _questionIndex + 1;
     });
-    print(_questionIndex);
+    } else{
+    }
   }
 
-  void show() {
-    print("hey im here");
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,14 +80,9 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: Text('first app'),
         ),
-        body: Column(
-          children: [
-            Questions(qusetionsAndAnswers[_questionIndex]['question'].toString()),
-            ...(qusetionsAndAnswers[0]['answer'] as List<String>).map((answer){
-              return Answer(_changeQuestions , answer );
-            }).toList()
-          ],
-        ),
+        body: _questionIndex < qusetionsAndAnswers.length
+            ? Quiz(qusetionsAndAnswers: qusetionsAndAnswers,something:_changeQuestions  , questionIndex: _questionIndex, )
+            : Result(_totalScore , _resetQuiz)
       ),
     );
   }

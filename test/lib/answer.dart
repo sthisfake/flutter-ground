@@ -2,13 +2,10 @@ import 'package:flutter/material.dart';
 
 class Answer extends StatelessWidget {
   
-  void Function()? something ;
-  String answer = "";
+  final void Function()? something ;
+  final String answer ;
 
-  Answer(void Function()? something , String answer){
-    this.something = something;
-    this.answer = answer ;
-  }
+  Answer(this.something , this.answer);
 
   @override
   Widget build(BuildContext context) {
