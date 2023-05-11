@@ -1,16 +1,17 @@
 # movie_app
 
-A new Flutter project.
+simple app to build the list of your favorite movies.
 
-## Getting Started
+## backend
 
-This project is a starting point for a Flutter application.
+the backend of project is written with python's fastApi framework
 
-A few resources to get you started if this is your first Flutter project:
+you can see the source code from this link :
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+https://github.com/sthisfake/fastApi/tree/main/favourit_movie_from_imdb_250/project
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### pages :
+
+## intro page :
+
+intro page implementation done , just a simple page show once to user before sign up or login.
