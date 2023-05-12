@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'home_page.dart';
+import 'sign_up.dart';
 import 'onboarding_page.dart';
 
 class Deciding extends StatefulWidget {
