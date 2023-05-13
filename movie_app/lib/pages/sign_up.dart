@@ -28,7 +28,7 @@ class _SignUpState extends State<SignUp> {
         body: Stack(
           children: [
             Container(
-              padding: EdgeInsets.only(left: 35, top: 30),
+              padding: EdgeInsets.only(left: 35, bottom: 0),
               child: Text(
                 'Create\nAccount',
                 style: TextStyle(color: Colors.white, fontSize: 33),
@@ -37,7 +37,7 @@ class _SignUpState extends State<SignUp> {
             SingleChildScrollView(
               child: Container(
                 padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.28),
+                    top: MediaQuery.of(context).size.height * 0.13),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -62,7 +62,35 @@ class _SignUpState extends State<SignUp> {
                                   borderSide:
                                       BorderSide(color: Colors.black, width: 5),
                                 ),
-                                hintText: "Name",
+                                hintText: "Full Name",
+                                hintStyle: TextStyle(
+                                    color: Color.fromARGB(255, 0, 0, 0),
+                                    fontSize: 20),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                )),
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          TextField(
+                            style: TextStyle(
+                                color: Color.fromARGB(255, 0, 0, 0),
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                            decoration: InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: BorderSide(
+                                      color: Color.fromARGB(255, 0, 0, 0),
+                                      width: 3),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide:
+                                      BorderSide(color: Colors.black, width: 5),
+                                ),
+                                hintText: "User Name",
                                 hintStyle: TextStyle(
                                     color: Color.fromARGB(255, 0, 0, 0),
                                     fontSize: 20),
@@ -138,9 +166,9 @@ class _SignUpState extends State<SignUp> {
                               Text(
                                 'Sign Up',
                                 style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 27,
-                                    fontWeight: FontWeight.w700),
+                                    color: Color.fromARGB(255, 0, 0, 0),
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.bold),
                               ),
                               CircleAvatar(
                                 radius: 30,
@@ -165,12 +193,12 @@ class _SignUpState extends State<SignUp> {
                                   Navigator.pushNamed(context, 'login');
                                 },
                                 child: Text(
-                                  'Sign In',
+                                  'login',
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
                                       decoration: TextDecoration.underline,
                                       color: Colors.white,
-                                      fontSize: 18),
+                                      fontSize: 23),
                                 ),
                                 style: ButtonStyle(),
                               ),
